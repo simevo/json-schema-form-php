@@ -57,7 +57,3 @@ if (!$validator->isValid()) {
 echo $message;
 
 ```
-
-## Running the tests
-
-    $ phpunit
