@@ -3,9 +3,6 @@ include('../vendor/autoload.php');
 $retriever = new JsonSchema\Uri\UriRetriever;
 $schema = $retriever->retrieve('file://' . realpath('schema2.json'));
 
-$refResolver = new JsonSchema\RefResolver($retriever);
-$refResolver->resolve($schema, 'file://' . __DIR__);
-
 $generator = new JsonSchemaForm\Generator($schema);
 
 ?>
