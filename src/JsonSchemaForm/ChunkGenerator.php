@@ -6,7 +6,6 @@ abstract class ChunkGenerator {
 	protected $path;
 	protected $schema;
 
-
 	public function __construct($generator, $path) {
 		$this->generator = $generator;
 		$this->path = $path;
@@ -57,7 +56,7 @@ abstract class ChunkGenerator {
 	 * @return string
 	 */
 	protected function _render($template, array $renderVars) {
-		foreach (array('id', 'label', 'name', 'value') as $expectedPropertyName) {
+		foreach (array('id', 'label', 'name', 'value', 'description') as $expectedPropertyName) {
 			if (!isset($renderVars[$expectedPropertyName])) {
 				$renderVars[$expectedPropertyName] = $this->{'get' . $expectedPropertyName}();
 			}
@@ -79,6 +78,17 @@ abstract class ChunkGenerator {
 		return '';
 	}
 
+	/**
+	 * @return string
+	 */
+	private function getDescription() {
+		if (isset($this->schema->description)) {
+			return $this->schema->description;
+		} else {
+			return '';
+		}
+	}
+
 	protected function getValue() {
 		//traverse path in $this->generator->data;
 		return JsonPath::getValue(implode('.',  $this->path), $this->generator->data);
@@ -95,7 +105,11 @@ abstract class ChunkGenerator {
 	}
 
 	private function getName() {
-		return 'root[' . implode('][', $this->path) . ']';
+		return implode('.', $this->path);
+	}
+
+	public function getType() {
+		return 'Null';
 	}
 
 	protected function getDomCompatible($string) {

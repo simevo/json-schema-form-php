@@ -24,4 +24,7 @@ class NumberField extends \JsonSchemaForm\ChunkGenerator {
 		$inputType = (isset($this->schema->inputType) ? $this->schema->inputType : 'select');
 		return $this->_render('chunk/' . $inputType . '.twig', $options);
 	}
+	public function getType() {
+		return 'number';
+	}
 }

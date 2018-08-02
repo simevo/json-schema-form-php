@@ -6,4 +6,7 @@ class BooleanField extends \JsonSchemaForm\ChunkGenerator {
 	public function render($options = array()) {
 		return $this->_render('chunk/boolean.twig', $options);
 	}
+	public function getType() {
+		return 'boolean';
+	}
 }

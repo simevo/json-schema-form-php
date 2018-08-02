@@ -21,4 +21,7 @@ class ArrayField extends \JsonSchemaForm\ChunkGenerator {
 
 		return $this->_render('chunk/array.twig', $options);
 	}
+	public function getType() {
+		return 'array';
+	}
 }

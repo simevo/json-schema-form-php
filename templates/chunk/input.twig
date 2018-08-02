@@ -1,4 +1,9 @@
-{% if label %}
+<div>
 	<label for="{{ id }}">{{label}}</label>
+	<input type="string" v-model="{{ name }}" id="{{ id }}">
+{% if description %}
+	<p class="note">
+		<span>{{ description }}</span>
+	</p>
 {% endif %}
-<input type="{{ type }}" name="{{ name }}" value="{{ value }}" id="{{ id }}">
+</div>

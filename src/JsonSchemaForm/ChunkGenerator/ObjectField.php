@@ -24,4 +24,7 @@ class ObjectField extends \JsonSchemaForm\ChunkGenerator {
 		$options['fieldHtmlChunks'] = $fieldHtmlChunks;
 		return $this->_render('chunk/object.twig', $options);
 	}
+	public function getType() {
+		return 'object';
+	}
 }

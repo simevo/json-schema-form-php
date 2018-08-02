@@ -1,8 +1,13 @@
-<fieldset>
-	{% if label %}
-	<legend>{{label}}</legend>
-	{% endif %}
-	{% for class, fieldHtmlChunk in fieldHtmlChunks %}
-	<div class="{{class}}">{{ fieldHtmlChunk|raw }}</div>
-	{% endfor %}
-</fieldset>
+<div class="section-object">
+    <div class="entry-edit-head collapseable">
+        <a id="{{id}}" href="#" v-on:click="{{name}}.visible = !{{name}}.visible">{{label}}</a>
+    </div>
+    <fieldset class="config" v-if="{{name}}.visible" id="{{id}}">
+        <legend>{{label}}</legend>
+{% for type, fieldHtmlChunk in fieldHtmlChunks %}
+        <div>
+			{{ fieldHtmlChunk|raw }}
+        </div>
+{% endfor %}
+    </fieldset>
+</div>
