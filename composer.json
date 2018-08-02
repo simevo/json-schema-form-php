@@ -7,17 +7,11 @@
             "email": "json-schema-form@kingsquare.nl"
         }
     ],
-	"repositories": [
-		{
-			"url": "https://github.com/alexmmm/json-schema",
-			"type": "vcs"
-		}
-	],
     "require": {
-        "justinrainbow/json-schema": "dev-fix-required-property-validation",
-        "twig/twig": "1.*"
+        "justinrainbow/json-schema": "^5.2",
+        "twig/twig": "^2.5"
     },
-	"autoload": {
-		"psr-0": { "JsonSchemaForm": "src/" }
-	}
+    "autoload": {
+        "psr-0": { "JsonSchemaForm": "src/" }
+    }
 }
